@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+
+.svgStyle{
+    @apply h-[60%] w-fit cursor-pointer p-1 rounded hover:border-2 active:bg-gray-500;
+}
+
+.imageClass{
+    @apply pointer-events-none select-none h-full;
+}
+
+input::-webkit-file-upload-button{
+ @apply text-white bg-black border-none 
+}
+
+@tailwind utilities;
