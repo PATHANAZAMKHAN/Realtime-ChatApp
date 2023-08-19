@@ -2,6 +2,7 @@ const { Server } = require("socket.io");
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
+require('dotenv').config();
 
 const app =  express();
 app.use(cors())
@@ -10,9 +11,11 @@ const server = http.createServer(app);
 
 const port = process.env.PORT || 5000;
 
+console.log(process.env.GLOBAL_URL)
+
 const io = new Server(server, {
     cors: {
-      origin: 'http://localhost:5173',
+      origin: process.env.GLOBAL_URL,
       methods:['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
       allowedHeaders:['chatroom'],
       credentials:true
