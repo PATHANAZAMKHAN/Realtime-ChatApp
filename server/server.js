@@ -6,7 +6,9 @@ const http = require('http');
 const app =  express();
 app.use(cors())
 
-const server = http.createServer(app)
+const server = http.createServer(app);
+
+const port = process.env.PORT || 5000;
 
 const io = new Server(server, {
     cors: {
@@ -38,6 +40,6 @@ io.on("connection", (socket) => {
 
 });
 
-server.listen(5000,()=>{
+server.listen(port,()=>{
     console.log("Server Started on http://localhost:5000")
 })
